@@ -1,10 +1,11 @@
 
-var chat = function (appname) {
+var modelClass = function (appname) {
  this.appname = appname;
+ this.lastTimeStamp = 0;
 };
 
 
-
+/*
 chat.prototype.appendFunc = function(time, message, nick) {
  // console.log("Hellaaaao, I'm " + this.firstName);
 
@@ -13,10 +14,10 @@ chat.prototype.appendFunc = function(time, message, nick) {
 
   return $("#pending-todos").append(a);
 };
+*/
 
 
-
-chat.prototype.saveMsg = function(object){
+modelClass.prototype.saveMsg = function(object){
 
 $.ajax({
 	    url: 'http://datastore.asadmemon.com/sandhya/chat/'+object.timestamp, 
@@ -31,7 +32,7 @@ $.ajax({
 
 
 
-chat.prototype.getMyData = function(callback)
+modelClass.prototype.getMyData = function(callback)
 {
 
 $.get('http://datastore.asadmemon.com/sandhya/chat',function(res){
@@ -44,26 +45,35 @@ $.get('http://datastore.asadmemon.com/sandhya/chat',function(res){
 
 
 
-chat.prototype.setint = function()
+modelClass.prototype.setint = function()
 {
+	//var that = this;
+	//debugger;
 
-	p1.getMyData(function(res)
+	model.getMyData(function(res)
 	{
-		$("#pending-todos").empty();
+		//$("#pending-todos").empty();
 
 		for(var i in res)
 		{
-			p1.appendFunc(i, res[i].msg, res[i].nick);
-
+			//debugger;
+			//p1.appendFunc(i, res[i].msg, res[i].nick);
+			//v1.render(i, res[i].msg, res[i].nick);
+			if(i > model.lastTimeStamp)
+			{
+			controller.newMessage(i, res[i].msg, res[i].nick);
 		}
+		}
+
+		model.lastTimeStamp = i;
 	})
 }
 
 
 
-var p1 = new chat("chit chat");
+var model = new modelClass("chit chat");
 
-setInterval(p1.setint,1000);
+setInterval(model.setint,1000);
 
 
 
