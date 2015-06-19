@@ -6,36 +6,73 @@ var express = require('express')
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-//var flash    = require('connect-flash');
+//var flash    = require('connect-flash
+  var monk = require('monk');
+  var db = monk('localhost:27017/nodetest2');
 
+  var users = db.get('loginCollection');
+  var messages = {};
 
-
-var users = [
+var app = express();
+/*var users = [
     { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
   , { id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }
 ];
 
+*/
+
+//users.insert( [{ username: "bob", password: "secret" , email: "bob@example.com"} ,
+  //{ username: "joe", password: "birthday" , email: "joe@example.com"}] );
+
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
+
+
+
+app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    
+    next();
+});
+
+
+
 function findById(id, fn) {
-  var idx = id - 1;
-  if (users[idx]) {
-    fn(null, users[idx]);
-  } else {
-    fn(new Error('User ' + id + ' does not exist'));
-  }
+   //for (var i = 0, len = users.length; i < len; i++) {
+    //var user = users[i];
+    var user = users.findOne({ _id: id }).on('success', function (doc) {
+      console.log("bhaaalla" + " ",doc);
+      return fn(null, doc);
+
+    });
+
 }
+
 
 function findByUsername(username, fn) {
-  for (var i = 0, len = users.length; i < len; i++) {
-    var user = users[i];
-    if (user.username === username) {
-      return fn(null, user);
-    }
-  }
-  return fn(null, null);
+  //for (var i = 0, len = users.length; i < len; i++) {
+    //var user = users[i];
+    var user = users.findOne({ username: username }).on('success', function (doc) {
+      console.log("bababa" + " ",doc);
+      return fn(null, doc);
+
+    });
+
+
 }
 
 
-var app = express();
+
+
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -63,7 +100,7 @@ app.use(passport.session());
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
   console.log("ser",user);
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -86,6 +123,8 @@ passport.use(new LocalStrategy(
     // indicate failure and set a flash message.  Otherwise, return the
     // authenticated `user`.
     findByUsername(username, function(err, user) {
+    
+
       if (err) { return done(err); }
       if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
       if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
@@ -111,7 +150,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/account', ensureAuthenticated, function(req, res){
   res.send(req.user);
+
 });
+
+
 
 app.get('/login', function(req, res){
   res.send("login karrrlo!")
@@ -124,14 +166,45 @@ app.get('/login', function(req, res){
 //   which, in this example, will redirect the user to the home page.
 //
 //   curl -v -d "username=bob&password=secret" http://127.0.0.1:3000/login
-app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login'}),
-  function(req, res) {
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login'}), function(req, res) {
+    
+// Set our collection
+  users.remove({ name: 'sandhya' });
+
     console.log("success",req.user);
     console.log("s2",req.session);
 
     res.redirect('/account');
+
+
   });
+
+//check this out. you added this methodd
+
+app.post('/', function(req, res) {
+      req.body
+          var collection = req.db.get('loginCollection');
+
+    // Submit to the DB
+    
+    collection.insert( req.body, function (err, doc) {
+        if (err) {
+            // If it failed, return error
+            res.send("There was a problem adding the information to the database.");
+        }
+        else {
+            res.redirect('/');
+        }
+
+});
+
+
+  //res.json(req.body); // req.body is your form data
+});
+
+
+
+
   
 // POST /login
 //   This is an alternative implementation that uses a custom callback to

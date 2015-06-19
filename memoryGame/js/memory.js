@@ -3,7 +3,10 @@ var memoryy = function (appname) {
  this.appname = appname;
 };
 
-
+var tiles_flipped = 0;
+var mem_value = [];
+var memory_tile_ids = [];
+var flip = false;
 function random()
 {
 
@@ -51,10 +54,10 @@ function shuffleArray() {
 }
 
 
+
+
 //final array
  var finalArray = shuffleArray();
-
-
 
 
 for(var i=0; i<12; i++)
@@ -62,21 +65,92 @@ for(var i=0; i<12; i++)
 	console.log(finalArray[i]);
 }
 
+
+
 for(var i=0; i<12; i++)
 {
 var y = document.getElementById(i);
 y.innerHTML = finalArray[i];
 
-
 }
 
 
+
+memoryy.prototype.FlipTile = function()
+{
+
+	if(mem_value.length < 2)
+	{
+		$(this).css("background-color","red");
+		
+		 if(mem_value.length == 0)
+		 {
+		 	mem_value.push($(this).text());
+		 	memory_tile_ids.push(this.id);
+		 	console.log("text 0-" + " " + $(this).text());
+		 	console.log("index 0-" + " " + this.id);
+		 }
+
+		 else if(mem_value.length == 1)
+		 {
+		 	mem_value.push($(this).text());
+		 	memory_tile_ids.push(this.id);
+		    console.log("text 1-" + " " + $(this).text());
+		 	console.log("index 1-" + " " + this.id);
+
+
+		 if(mem_value[0] == mem_value[1])
+		 {
+		 	//tiles_flipped +=2;
+		 	//flip = false;
+
+		 	//console.log("tile flipped" + tiles_flipped);
+		 	mem_value = [];
+		 	memory_tile_ids = [];
+
+		 	console.log('yahoo');
+		 }
+
+		 else
+		 {
+		 	function flipBack()
+		 	{
+		 		 var tile_1 = document.getElementById(memory_tile_ids[0]);
+				 var tile_2 = document.getElementById(memory_tile_ids[1]);
+
+				 console.log("tile1" + " " ,tile_1);
+				  console.log("tile2" + " ",tile_2);
+				 //tile_1.css("background-color", "orange");
+				 //tile_2.css("background-color", "orange");
+				  tile_1.style.backgroundColor = 'white';
+				 // x[0].style.backgroundColor = "yellow"
+            	 //   tile_1.innerHTML = "";
+				   tile_2.style.backgroundColor= 'white';
+            	   // tile_2.innerHTML = "";
+				    // Clear both arrays
+				   // memory_values = [];
+            	   // memory_tile_ids = [];
+		 	}
+		 	 setTimeout(flipBack, 700);
+		 	      
+		    }
+
+		}
+
+	}
+}
+
 $('#myTable td').css("color","white");
 //int i=0;
+
+//var k=2;
+
+//while(k>0){
 memoryy.prototype.clickCell = function()
 {
 
 		 $(this).css("background-color","red");
+
 		// var idd = getTableId(myTable);
 		//$(this).text(random());
 
@@ -86,21 +160,30 @@ memoryy.prototype.clickCell = function()
         // y.innerHTML = actualNum;
 
 }
+//k++;
+
+//}
 
 var m1 = new memoryy("Memory Game");
 
 $(function() 
 {
- $("#myTable td").click(m1.clickCell)
+
+ $("#myTable td").click(m1.FlipTile)
+ //console.log("12 times");
+
+ 	//FlipTile(this,finalArray[i]));
 
 });
 
 
-window.setInterval(function()
+/*window.setInterval(function()
 {
+	if(flip === true){
  $("#myTable td").css("background-color","white");
+}
 
 }
 
-, 1000);
+, 2000);*/
       
