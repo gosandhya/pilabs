@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Login Form</title>
 		
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+       
+
 		<link rel="stylesheet" href="bootstrap.min.css" />
-		<link rel="stylesheet" href="css/index.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!--<link rel="stylesheet" href="css/index.css" /> -->
+        <link rel="stylesheet" href="css/style.css" />
+
+
 	</head>
+
 	<body>
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-		    	<div class="navbar-header">
-		      		<a class="navbar-brand" href="#">
-		        		<span class="glyphicon glyphicon-list"></span> Login
-		      		</a>
-		    	</div>
-			</div>
-		</nav>
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-xs-10">
-					<form action="/login1" method="POST">
-					 <label for="exampleInputEmail1">Email address</label>
-					<input type="text" class="form-control" id="name" name="username" style="background-color: #FCF5D8;" placeholder="username">
+
+
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h1 class="text-center">Login</h1>
+      </div>
+
+
+      <div class="modal-body">
+				<form class="form col-md-12 center-block" action="/login1" method="POST">
+					 <div class="form-group">
+					<!--<form action="/login1" method="POST"> 
+					 <label for="exampleInputEmail1">Email address</label>-->
+					<input type="text" class="form-control input-lg" id="name" name="username" placeholder="username">
 				</div>
 
-			    
-				<div class="col-xs-10">
-					 <label for="exampleInputEmail1">Password</label>
-					<input type="password" class="form-control" id="pass" name="password" style="background-color: #FCF5D8;" placeholder="password">
+
+
+			     <div class="form-group">
+					<input type="password" class="form-control input-lg" id="pass" name="password" placeholder="password">
 				</div>
             
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginButton">Sign In</button>
+              <span class="pull-right"><a href="register.html">Register</a></span>
+            </div>
+
            
-				<div class="col-xs-10">
-					<button type="submit" class="btn btn-warning" id="loginButton" ><span ></span> Login</button>
-				</div>
+			</form>
+
 
 			</div>
-				</div>
+		<div class="modal-footer">
+         
+      </div>
 		
-			</form>
-			    
-
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="bootstrap.min.js"></script>
-		
-		
-
-        
-               
+	       
     
 	</body>
 </html>

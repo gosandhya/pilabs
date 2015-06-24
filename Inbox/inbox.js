@@ -14,18 +14,8 @@ var session = require('express-session');
   var messages = {};
 
 var app = express();
-/*var users = [
-    { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
-  , { id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }
-];
-
-*/
-
-//users.insert( [{ username: "bob", password: "secret" , email: "bob@example.com"} ,
-  //{ username: "joe", password: "birthday" , email: "joe@example.com"}] );
 
 
-// Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
     next();
@@ -152,6 +142,69 @@ app.get('/account1', ensureAuthenticated, function(req, res){
 
 
 
+app.get('/compose' , ensureAuthenticated, function(req, res){
+  //res.send(req.user);
+//res.send(req.user.inbox.push("Hii"));
+//res.send(req.body);
+//res.send(req.user);
+res.send('chalo');
+  //req.user.inbox.push   mail to database of receiver 
+});
+
+
+app.post('/compose2' , ensureAuthenticated, function(req, res){
+  //res.send(req.user);
+  //res.send(req.user.inbox.push("Hii");
+    console.log(req.user);  //user logged
+    console.log("email" + " " ,req.body.remail);  //data from form
+   // console.log("subject" + " ",req.body.rsubject);
+    //res.send(req.user);
+
+    
+
+
+    req.body.from = req.user.email;
+    req.body.timestampp = new Date();
+
+console.log(req.body);
+
+ var user = users.findOne({ email : req.body.remail}).on('success', function (doc) {
+     //console.log("bhaaalla" + " ",doc);
+
+      //console.log("hoja" + " ",doc);
+     // return fn(null, doc);
+
+     if(!doc.inbox)//|| !doc.subject) 
+     {
+      doc.inbox = [];
+      //doc.subject = [];
+
+     }
+  doc.inbox.push(req.body);
+  //doc.subject.push(req.body);
+  users.updateById(doc._id, doc,{});
+
+
+
+    });
+  res.redirect('/inbox');
+
+});
+
+
+
+app.get('/inbox', ensureAuthenticated, function(req, res){
+
+  res.send(req.user.inbox);
+
+
+ //var a = $('<div class="todo-holder"> <span class="todo">'+req.user.inbox+'</span></div>');
+ 
+ //$("#inbox").append(a);
+
+});
+
+
 app.get('/login1', function(req, res){
   res.send("login karrrlo!")
 });
@@ -159,13 +212,12 @@ app.get('/login1', function(req, res){
 
 app.post('/login1', passport.authenticate('local', { failureRedirect: '/login1'}), function(req, res) {
     
-// Set our collection
- // users.remove({ name: 'sandhya' });
+
 
     console.log("success",req.user);
     console.log("s2",req.session);
 
-    res.redirect('/account1');
+    res.redirect('/inbox.html');
 
 
   });
@@ -176,8 +228,12 @@ app.post('/', function(req, res) {
       console.log(req.body);
           var collection = req.db.get('loginCollection');
 
-    // Submit to the DB
-    
+
+ //var user = users.findOne({ username : {$ne: req.body.username}}).on('success', function (doc)
+// {
+
+
+
     collection.insert( req.body, function (err, doc) {
         if (err) {
             // If it failed, return error
@@ -187,11 +243,37 @@ app.post('/', function(req, res) {
             res.redirect('/');
         }
 
+//});
+
+ });
+
+
+
 });
 
+app.get('/delete/*',function(req,res)
+
+{
+var index = req.params[0];
+
+req.user.inbox[index].isDeleted=true;
+
+
+//users.remove({ _id: id }, function (err) {
+ // if (err) throw err;
+//});
+
+
+users.updateById(req.user._id, req.user,{});
+
+
+
+
+console.log("I got here atleast");
+//res.send(req.user.inbox);
+
 
 });
-
 
 
 app.get('/logout1', function(req, res){

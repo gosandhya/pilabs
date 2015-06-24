@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inbox</title>
+		
+
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+
+
+	<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+	
+				
+				  <div class="row">
+
+
+        <div class="navbar-collapse collapse" id="topmenu">
+        <ul class="nav">
+       
+            <li class="col-md-2" id="person"><a class="navbar-brand" href="#">Person</a></li>
+            <li class="col-md-5" id="inboxx"><a class="navbar-brand" href="#">Inbox</a></li>
+            <li class="col-md-5" id="subjectt"><a class="navbar-brand" href="#">Email View</a></li>
+        </ul>
+        </div>  
+    </div>	
+</div>
+</nav>
+
+
+
+
+<div class="container">
+<hr style="width: 2px; height: 2px; display: inline-block;">
+<div class="row">
+
+
+
+
+
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"> 
+                	
+                	<div class="span2">
+				<p>
+
+				  <form action="/compose.html" >
+                	
+				<button margin-left="20px" type="submit" class="btn btn-danger btn-block" id="compose" ><div id="plus"><span class="glyphicon glyphicon-plus"></span></div> Compose Message</button> 
+				</form>
+
+
+				</p>
+				<hr/>
+				<p>
+
+				<button class="btn btn-info btn-block"type="button">  <div id="envelope"><span class="glyphicon glyphicon-envelope"></span></div>
+				  Inbox 
+				</button>
+				</p>
+
+				<p>
+					<button class="btn btn-warning btn-block" type="button"> <div id="circle"><span class="glyphicon glyphicon-ok-circle"></span></div>
+				  		Sent Mail 
+					</button>
+				</p>
+				
+				<p>
+					<form action="/logout1">
+					<button class="btn btn-primary btn-block" type="submit"> <div id="off"><span class="glyphicon glyphicon-off"></span></div>
+				  		logout
+					</button>
+				</form>
+
+				</p>
+			</div>
+</div>
+
+
+
+	<div style="cursor: pointer">
+<div class="col-md-4"  id="inbox" id="myDiv">
+
+
+<!-- messages to be appended here -->	
+
+  </div>
+</div>
+  
+
+
+
+
+
+
+
+
+	 <div class="col-md-6"  id="emailView">
+
+
+ <textarea name="subject" id="subText" rows="1" cols="90" style="font-weight: bold; border: none; font-size: 20pt" ></textarea>
+  <input type="text" id="forTime" name="time" style="border: none"><br>
+  <!--	<button type="button" class="btn btn-default">
+						<i class="fa fa-refresh"></i>
+					</button>  -->
+
+<hr>
+ 
+<input type="text" id="mesg2" name="message1" style="border: none"><br> 
+ <hr>
+
+ <!--<br /><textarea name="message" id="mesg1" rows="15" cols="90" style="border: none"></textarea><br /> -->
+
+<div id="mesg1" name="message" id="myDiv">
+
+<!-- messages to be appended here -->	
+
+  </div>
+
+
+
+ <br /><textarea name="reply" id="reply" rows="10" cols="90" style="" placeholder="Reply here"></textarea><br />
+
+   
+<div>
+<button type="button" class="btn btn-primary" id="replyButton" ><span class="glyphicon glyphicon-pencil"></span></button>
+
+</div>
+			
+
+		<script src="bootstrap.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		 <script src="js/view.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/controller.js"></script>
+	
+               
+    
+	</body>
+</html>
