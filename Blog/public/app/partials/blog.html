@@ -1,0 +1,33 @@
+
+
+<div class="container">
+<form ng-submit="entry()" ng-controller="blogController">
+
+   <div class="form-group">
+    <div class="col-sm-12">
+    	<label>Title:</label>
+
+    <input type="text" ng-model="title" name="title">
+    <hr>
+    </div>
+</div>
+ <hr>
+  <div class="form-group">
+ <div class="col-sm-12">
+  <textarea type="text" ng-model="content" rows="10" cols="120" placeholder="type your content here" name="entry"></textarea>
+</div>
+</div>
+
+
+ <button class=" col-sm-10 btn btn-success" type="submit" value="submit" id="entry">
+<span class="glyphicon glyphicon-save"></span>  Submit
+</button>
+</form>
+
+</div>
+
+
+
+
+
+

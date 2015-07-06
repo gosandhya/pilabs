@@ -45,7 +45,7 @@ vieww.prototype.buttonTodo = function()
 			            
 		       }
 
-		       location.href = "/inbox.html";
+		      location.href = "/inbox.html";
 }
 
 
@@ -88,6 +88,9 @@ $(function() {
 
         
 });
+
+
+
 
 /*window.onload = function(){
 

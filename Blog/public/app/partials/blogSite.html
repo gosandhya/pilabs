@@ -1,0 +1,41 @@
+
+<div class="container">
+<table class="table table-striped">
+
+    <thead>
+      <tr><th colspan="4">Blog Listings</th></tr>
+
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="blog in allblogs">
+
+       <!-- <td>
+          <button class="btn" ng-click="editUser(user.id)">
+          <span class="glyphicon glyphicon-pencil"></span>  Edit
+        </button>
+
+        </td> -->
+     
+        <!--<td>{{$index + 1}}</td> -->
+         <td><a ng-href="/#/blogSite/{{blog.from}}/{{blog.blogID}}">{{blog.title}}</a>
+
+           
+         </td>
+               
+
+
+        <td>{{blog.from}}</td> 
+       
+        <td>{{blog.timestampp}}</td>
+           <td> <a href="/#/myBlogSite/{{blog.from}}">View all blogs by {{blog.from}}</a>
+           </td>
+     
+
+      </tr>
+      <hr>
+    </tbody>
+  </table>
+
+
+</div>

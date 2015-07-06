@@ -71,8 +71,6 @@ function findByUsername(username, fn) {
 
 
 
-
-
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -203,27 +201,6 @@ app.post('/', function(req, res) {
 });
 
 
-
-
-  
-// POST /login
-//   This is an alternative implementation that uses a custom callback to
-//   acheive the same functionality.
-/*
-app.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err) }
-    if (!user) {
-      req.flash('error', info.message);
-      return res.redirect('/login')
-    }
-    req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.redirect('/users/' + user.username);
-    });
-  })(req, res, next);
-});
-*/
 
 app.get('/logout', function(req, res){
   req.logout();

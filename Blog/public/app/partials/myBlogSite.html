@@ -1,0 +1,88 @@
+ 
+
+<!--<div class="container">
+<div ng-controller="myBlogSiteController">
+<table class="table table-striped">
+
+    <thead>
+      <tr><th colspan="4">Blog Listings</th></tr>
+
+    </thead>
+
+    <tbody>
+      <tr>
+
+       <!-- <td>
+          <button class="btn" ng-click="editUser(user.id)">
+          <span class="glyphicon glyphicon-pencil"></span>  Edit
+        </button>
+
+        </td> -->
+     
+        <!--<td>{{$index + 1}}</td> -->
+      <!--   <td> <a href="/#/myBlogSite/{{blog.from}}">My Blogs</a>
+
+         </td>
+
+ 
+
+      </tr>
+      <hr>
+    </tbody>
+  </table>
+
+
+
+</div>
+</div>
+
+
+<div class="container">
+ <form>
+       
+       <hr>
+       <label>{{title}}</label>
+       <h6>By</h6>
+       <label>{{blog.from}}</label>
+       <hr>
+       <label>{{blog.content}}</label>
+       <hr>
+       
+    </form>
+       
+
+</div>
+
+
+
+-->
+
+
+
+
+<div class="container">
+
+<table class="table table-striped">
+    <thead>
+      <tr><th colspan="4">My Blogs</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="blogs in blog">
+        <td>{{$index + 1}}</td>
+        
+        <td>{{blogs.title}}</td>
+        <td>{{blogs.content}}</td> 
+
+
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+
+
+
+
+

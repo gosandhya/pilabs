@@ -1,0 +1,199 @@
+/*!
+ * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.full {
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.navbar-default {
+    background-color: #5CB3EF;
+   height: 60px;
+    font-family:Droid Sans;
+}
+
+
+
+#cog
+{
+font-size:  20px;
+color: white;
+}
+
+
+
+#bell
+{
+font-size:  20px;
+color: white;
+}
+
+.center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+
+ border-radius: 30px 0px 0px 30px;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+
+
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+     border-radius: 30px 0px 0px 30px;
+}
+
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+.nav-pills {
+
+}
+
+.label-primary {
+  background-color: #ffffff;
+  color : #4568A6;
+
+
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #3071a9;
+}
+.icon-addon{
+position: relative;
+}
+
+
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+    background-color: white;
+
+
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+ 
+}
+
+
+#wrap
+{
+  min-height: 100%;  
+}
+ 
+#main
+{
+    overflow:auto;
+    padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+ 
+.footer
+{
+    position: fixed;
+    height: 60px;
+    color:#fff;
+    background-color: rgb(35,43,50);
+    bottom: 0;
+    width:100%;
+    z-index:1000;
+
+} 
+#sidebar-container
+{
+  position: fixed;
+  z-index: 1000;
+  background-color:white;
+}
+
+#musicPlayer
+{
+
+}
+
+
+.icon-pause:before {
+    content: "\e073";
+}
+
+
+.icon-play:before {
+    content: "\e072";
+}
+
+.icon-pause,.icon-play {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

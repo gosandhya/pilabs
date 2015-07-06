@@ -1,0 +1,23 @@
+<!--
+
+<input type="text" placeholder="search" ng-model="filter">
+
+ <table>
+    <thead>
+      <tr><th colspan="4">Drivers Championship Standings</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="driver in driversList | filter: search">
+        <td>{{$index + 1}}</td>
+        <td>
+      <a ng-href="/app/#/drivers/{{$index}}">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</a>
+
+        </td>
+        <td>{{driver.Constructors[0].name}}</td>
+        <td>{{driver.points}}</td> 
+
+
+      </tr>
+    </tbody>
+  </table>
+-->

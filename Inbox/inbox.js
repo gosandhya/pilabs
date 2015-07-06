@@ -160,19 +160,17 @@ app.post('/compose2' , ensureAuthenticated, function(req, res){
    // console.log("subject" + " ",req.body.rsubject);
     //res.send(req.user);
 
-    
-
-
     req.body.from = req.user.email;
     req.body.timestampp = new Date();
 
-console.log(req.body);
+    //console.log(req.body);
+   
 
  var user = users.findOne({ email : req.body.remail}).on('success', function (doc) {
-     //console.log("bhaaalla" + " ",doc);
 
-      //console.log("hoja" + " ",doc);
-     // return fn(null, doc);
+if(!doc)
+{
+
 
      if(!doc.inbox)//|| !doc.subject) 
      {
@@ -183,11 +181,19 @@ console.log(req.body);
   doc.inbox.push(req.body);
   //doc.subject.push(req.body);
   users.updateById(doc._id, doc,{});
-
-
-
-    });
   res.redirect('/inbox');
+
+}
+
+else
+{
+//window.alert("user is not right");
+console.log("user does not exist");
+
+}
+
+});
+
 
 });
 
@@ -197,12 +203,9 @@ app.get('/inbox', ensureAuthenticated, function(req, res){
 
   res.send(req.user.inbox);
 
-
- //var a = $('<div class="todo-holder"> <span class="todo">'+req.user.inbox+'</span></div>');
- 
- //$("#inbox").append(a);
-
 });
+
+
 
 
 app.get('/login1', function(req, res){
@@ -269,8 +272,9 @@ users.updateById(req.user._id, req.user,{});
 
 
 
-console.log("I got here atleast");
 //res.send(req.user.inbox);
+
+
 
 
 });

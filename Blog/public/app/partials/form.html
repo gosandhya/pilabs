@@ -1,0 +1,44 @@
+
+
+<div class="container">
+
+
+<button class=" btn btn-success">
+<span class=" glyphicon glyphicon-user"></span>  LOGIN
+</button>
+<hr>
+
+
+	<form ng-submit="login()" class="form-horizontal" ng-controller="loginController">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Username:</label>
+    <div class="col-sm-10">
+    <input type="text" ng-model="text" name="text" placeholder="username">
+    </div>
+  </div> 
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Password:</label>
+    <div class="col-sm-10">
+    <input type="password" ng-model="pass" value="pass" placeholder="password">
+    </div>
+  </div>
+
+<button class=" col-sm-10 btn btn-success" type="submit" value="submit" id="login" ng-disabled="error || incomplete">
+<span class="glyphicon glyphicon-save"></span>  Log me in
+</button>
+
+         <a class=" col-sm-10 btn btn-success" ng-href="/#/compose">Not a member yet?</a>
+
+
+
+</form>
+
+
+
+
+
+
+
+
+</div>
