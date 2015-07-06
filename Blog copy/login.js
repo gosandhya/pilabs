@@ -1,4 +1,3 @@
-var port = process.env.PORT || 3001;
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
@@ -9,11 +8,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 //var flash    = require('connect-flash
   var monk = require('monk');
-  var dburl = 'localhost:27017/nodetest1';
-
-  if (process.env.PORT)
-    dburl = "anna:anna@ds049198.mongolab.com:49198/blogcollection";
-  var db = monk(dburl);
+  var db = monk('localhost:27017/nodetest1');
 
   var users = db.get('blogsCollection');
   var messages = {};
@@ -185,8 +180,8 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/loginfail
 // Set our collection
   //users.remove({ name: 'sandhya' });
 
-    //console.log("success",req.user);
-    //console.log("s2",req.session);
+    console.log("success",req.user);
+    console.log("s2",req.session);
 
     res.send({success:true});
 
@@ -206,8 +201,6 @@ app.post('/', function(req, res) {
         {
             // If it failed, return error
             res.send("There was a problem adding the information to the database.");
-
-
         }
         else 
         {
@@ -237,6 +230,9 @@ app.post('/register' , ensureAuthenticated, function(req, res){
     req.body.from = req.user.username;
 
     //req.body.blogId = 
+
+
+
 
 
      if(!req.user.blog)//|| !doc.subject) 
@@ -339,7 +335,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.listen(port);
+app.listen(3030);
 
 
 // Simple route middleware to ensure user is authenticated.

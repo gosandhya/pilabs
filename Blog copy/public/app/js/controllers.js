@@ -79,9 +79,7 @@ ergastAPIservice.login($scope.text, $scope.pass).success(function(res){
         { 
 
             console.log('unsuccessful1');
-              window.alert("This user is not registered");
-
-            $location.path("/");
+            $location.path("/login");
 
         }
          //console.log($scope.text);
@@ -108,7 +106,7 @@ ergastAPIservice.register($scope.user, $scope.email, $scope.pass).success(functi
 
 
         console.log('success');
-        $location.path("/");
+        $location.path("/login");
 
       }
         else
@@ -126,7 +124,7 @@ ergastAPIservice.register($scope.user, $scope.email, $scope.pass).success(functi
 
 
 
-.controller('blogController', function($scope, $location,ergastAPIservice, $location, $rootScope) {
+.controller('blogController', function($scope, $location, ergastAPIservice, $location, $rootScope) {
 $rootScope.location = $location.path();
 console.log("hi");
 $scope.entry = function()
