@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+  <body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+                     
+            <div class="navbar-header"></div>
+              <form action="/logout">
+          <button type="submit"> <div id="off"></div>
+              Bye. See you later
+          </button>
+        </form>
+          </div>
+    </nav>
+</div>
+
+
+    <div id="mount-point"></div>
+
+    <script type="text/jsx">
+ 
+
+ var Thumbnail = React.createClass({
+        render: function(){
+          console.log(this.props.src);
+            return (
+              
+                <div className="col-xs-6 col-sm-4 col-md-3 contain">
+                 <a href="/">
+                 <img src={this.props.src} />
+                 <input type="text" value={this.props.cap}/>
+                 </a>
+
+                 </div>
+                 
+            );
+        }
+    });
+
+
+
+    var MyComponent = React.createClass({
+        render: function(){
+         
+            return (
+
+                <div className="container" >
+                <div id="absolute">
+                <form >
+                <input type="text" placeholder="Your URL" ref="url"/>
+                 <input type="text" placeholder="Caption" ref="caption"/>
+                <input type="button" onClick={this.urlChange} value="Submit"/>
+                </form>
+                </div>
+
+                <ThumbnailGrid src={this.state.list} />
+                
+
+              </div>
+            );
+   },
+
+
+ getInitialState: function(){
+          return {
+            list:[],
+            
+            // arr:[]
+          }
+        },
+
+     urlChange: function(event)
+
+        {
+      var that=this;
+
+          
+          var url = React.findDOMNode(this.refs.url).value;
+          var caption = React.findDOMNode(this.refs.caption).value;
+        //  this.setState({name:url})
+
+    
+
+     $.ajax({
+      url: '/data', 
+      type: 'POST', 
+      contentType: 'application/json', 
+      data:JSON.stringify({url:url, caption:caption}),
+      success: function(){
+
+        $.get('/data',function(res){
+           that.setState({list:res});
+               
+
+  });
+      }
+     
+  });           
+                
+ },
+
+
+      componentDidMount: function()
+      {
+        var that=this;
+        $.get('/data',function(res){
+           that.setState({list:res});
+
+                //callback(res);
+                //arr = res;
+
+  });
+      }
+      
+});
+
+
+    var ThumbnailGrid = React.createClass
+    ({
+
+  
+      render: function()
+
+      {
+
+        var arr=this.props.src;
+        //var arr1 = this.props.cap;
+
+        var newarr = arr.map(function(element){
+
+          return <Thumbnail src={element.url} cap={element.caption}/>
+        });
+
+         // console.log("array" + " ",arr);
+        return(
+
+
+         <div> {newarr} </div>
+
+
+          );
+      },
+
+    
+
+    });
+
+
+
+
+
+
+  React.render(<MyComponent newarr />, document.getElementById('mount-point'));
+    </script>
+
+
+  </body>
+</html>

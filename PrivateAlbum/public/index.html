@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+       
+
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<!--<link rel="stylesheet" href="css/index.css" /> -->
+        <link rel="stylesheet" href="css/style.css" />
+
+
+	</head>
+
+	<body>
+
+
+
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h1 class="text-center">Login</h1>
+      </div>
+
+
+      <div class="modal-body">
+				<form class="form col-md-12 center-block" action="/login" method="POST">
+					 <div class="form-group">
+					<!--<form action="/login1" method="POST"> 
+					 <label for="exampleInputEmail1">Email address</label>-->
+					<input type="text" class="form-control input-lg" id="name" name="username" placeholder="username">
+				</div>
+
+
+
+			     <div class="form-group">
+					<input type="password" class="form-control input-lg" id="pass" name="password" placeholder="password">
+				</div>
+            
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginButton">Sign In</button>
+              <span class="pull-right"><a href="register.html">Register</a></span>
+            </div>
+
+           
+			</form>
+
+
+			</div>
+		<div class="modal-footer">
+         
+      </div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+	       
+    
+	</body>
+</html>
+
+
+
+	
