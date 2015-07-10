@@ -1,70 +1,121 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		
-	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Login Form</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-       
+<html lang="en">
 
-		<link rel="stylesheet" href="bootstrap.min.css" />
-		<!--<link rel="stylesheet" href="css/index.css" /> -->
-        <link rel="stylesheet" href="css/style.css" />
+    <head>
 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login Form Template</title>
 
-	</head>
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-	<body>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+    </head>
 
-<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-          <h1 class="text-center">Login</h1>
-      </div>
+    <body>
 
-
-      <div class="modal-body">
-				<form class="form col-md-12 center-block" action="/login" method="POST">
-					 <div class="form-group">
-					<!--<form action="/login1" method="POST"> 
-					 <label for="exampleInputEmail1">Email address</label>-->
-					<input type="text" class="form-control input-lg" id="name" name="username" placeholder="username">
-				</div>
-
-
-
-			     <div class="form-group">
-					<input type="password" class="form-control input-lg" id="pass" name="password" placeholder="password">
-				</div>
-            
-
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginButton">Sign In</button>
-              <span class="pull-right"><a href="register.html">Register</a></span>
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>INSTALBUM</strong>
+                            <div class="description">
+                            	<p>
+	                            	Because you want to keep your memories <strong>SAFE</strong>!
+	                            	
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Login to our site</h3>
+                            		<p>Enter your username and password to log on:</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="/login" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">Username</label>
+			                        	<input type="text" name="username" id="name" placeholder="Username..." class="form-username form-control">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="password" id="pass" placeholder="Password..." class="form-password form-control">
+			                        </div>
+			                        <button type="submit" id="loginButton" class="btn">Sign in!</button>
+			                    
+                                    <span class="pull-right"><a href="register.html">Register</a></span>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                  
+                </div>
             </div>
+            
+        </div>
 
-           
-			</form>
+
+        <!-- Javascript -->
 
 
-			</div>
-		<div class="modal-footer">
-         
-      </div>
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="bootstrap.min.js"></script>
-	       
-    
-	</body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+
+ <script>
+
+$(document).ready(function(){
+    $('#loginButton').attr('disabled',true);
+    $('#pass').keyup(function(){
+    		
+        if($('#pass').val().length !=0 && $('#name').val().length !=0)
+
+            $('#loginButton').attr('disabled', false); 
+
+        else
+            $('#loginButton').attr('disabled', true);
+    })
+
+});
+
+ </script>
+
+    </body>
+
 </html>
-
-
-
-	

@@ -1,15 +1,58 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <script src="build/react.js"></script>
-    <script src="build/JSXTransformer.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <!--<script src="build/JSXTransformer.js"></script> -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!--  <script src="js/Components/thumbnail.js" type="text/jsx"></script>
+        <script src="js/Components//ThumbnailGrid.js" type="text/jsx"></script>
+          <script src="js/Components/MyComponent.js" type="text/jsx"></script> -->
+            
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 
+
+
+
   </head>
+
+
+
   <body>
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -17,9 +60,11 @@
                      
             <div class="navbar-header"></div>
               <form action="/logout">
-          <button type="submit"> <div id="off"></div>
-              Bye. See you later
+          <button type="submit" class="btn btn-danger btn-md"> <div id="off"></div>
+              <strong>Bye. See you later</strong>
           </button>
+   
+
         </form>
           </div>
     </nav>
@@ -28,7 +73,7 @@
 
     <div id="mount-point"></div>
 
-    <script type="text/jsx">
+ <!--   <script type="text/jsx">
  
 
  var Thumbnail = React.createClass({
@@ -159,11 +204,10 @@
 
 
 
+React.render(<MyComponent2 name="Handsome" />, document.getElementById('mount-point'));
 
+    </script> -->
 
-  React.render(<MyComponent newarr />, document.getElementById('mount-point'));
-    </script>
-
-
+   <script src="js/bundle.js"></script>
   </body>
 </html>
