@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/sandhyagopchandani/Desktop/miniProjects/AlbumWebpage copy/public/js/app.js' from '/Users/sandhyagopchandani/Desktop/miniProjects/AlbumWebpage copy/public'");

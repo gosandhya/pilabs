@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Compose message</title>
+		
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="#">
+		        		<span class="glyphicon glyphicon-list"></span> New message
+		      		</a>
+		    	</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<form >
+				
+
+					<div class="col-xs-12">	
+					 <label for="exampleInputEmail1">To: </label>
+
+					<input type="text" class="form-control" id="email" name="remail"  placeholder="email address">
+				</div>
+
+
+		<div class="col-xs-12">
+						
+					 <hr>
+					<input type="text" class="form-control" id="subject" name="rsubject"  placeholder="subject">
+				</div>
+
+				<div class="col-xs-12">
+						
+					
+				<!--	<input type="text" class="form-control" id="message" name="msg" placeholder="type your message"> -->
+					 <br /><textarea class="form-control" id="message" name="msg" rows="10" cols="90" style="" placeholder="type your message here"></textarea><br />
+
+				</div>
+
+			   
+            
+           
+				<div class="col-xs-10">
+					<button type="button" class="btn btn-primary" id="sendButton" ><span ></span> Send</button>
+				</div>
+
+			</div>
+				</div>
+		
+			</form>
+			    
+
+		
+		<script src="bootstrap.min.js"></script>
+		 <script src="js/view.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/controller.js"></script>
+		
+
+        
+               
+    
+	</body>
+</html>

@@ -1,3 +1,6 @@
+
+var port = process.env.PORT || 3030;
+
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
@@ -9,8 +12,13 @@ var jsonParser = bodyParser.json();
 var session = require('express-session');
 //var flash    = require('connect-flash
   var monk = require('monk');
-  var db = monk('localhost:27017/nodetest1');
+  var dburl = 'localhost:27017/nodetest1';
 
+
+if (process.env.PORT)
+    dburl = "anna:anna@ds053251.mongolab.com:53251/albumcollection";
+  
+  var db = monk(dburl);
   
 
   var users = db.get('albumsCollection');
@@ -232,7 +240,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.listen(3030);
+app.listen(port);
 
 
 function ensureAuthenticated(req, res, next) {
